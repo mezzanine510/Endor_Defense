@@ -88,9 +88,13 @@ public class Player : MonoBehaviour
 
     void Rotate()
     {
-        float pitch = transform.localPosition.y * positionPitchFactor + yThrow * controlPitchFactor;
+        float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
+        float pitchDueToControlThrow = yThrow * controlPitchFactor;
+
+        float pitch = pitchDueToPosition + pitchDueToControlThrow;
         float yaw = 0f;
         float roll = xThrow * controlRollFactor;
+        
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 }
