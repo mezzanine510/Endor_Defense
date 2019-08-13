@@ -5,18 +5,19 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
-    [Tooltip("xSpeed")] [SerializeField] float xSpeed = 45f;
-    [Tooltip("ySpeed")] [SerializeField] float ySpeed = 35f;
+    [Tooltip("xSpeed")] [SerializeField] float xSpeed = 55f;
+    [Tooltip("ySpeed")] [SerializeField] float ySpeed = 40f;
 
+    [SerializeField] float positionYawFactor = 0.25f;
+    [SerializeField] float controlYawFactor = 15f;
     [SerializeField] float positionPitchFactor = 0.25f;
     [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float controlRollFactor = -20f;
-    [SerializeField] float controlYawFactor = 15f;
 
-    float minXPos = -17f;
-    float maxXPos = 17f;
-    float minYPos = -14.5f;
-    float maxYPos = 15f;
+    float minXPos = -29f;
+    float maxXPos = 29f;
+    float minYPos = -15f;
+    float maxYPos = 17f;
     float xThrow;
     float yThrow;
     float xOffsetThisFrame;
@@ -87,7 +88,10 @@ public class Player : MonoBehaviour
         float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
         float pitchDueToControlThrow = yThrow * controlPitchFactor;
 
-        float yaw = xThrow * controlYawFactor;
+        float yawDueToPosition = transform.localPosition.x * positionYawFactor;
+        float yawDueToControlThrow = xThrow * controlYawFactor;
+
+        float yaw = yawDueToPosition + yawDueToControlThrow;
         float pitch = pitchDueToPosition + pitchDueToControlThrow;
         float roll = xThrow * controlRollFactor;
         
