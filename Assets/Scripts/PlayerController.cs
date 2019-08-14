@@ -1,18 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [Header("Speed")]
     [Tooltip("xSpeed")] [SerializeField] float xSpeed = 55f;
     [Tooltip("ySpeed")] [SerializeField] float ySpeed = 40f;
 
+    [Header("Position-based rotation")]
     [SerializeField] float positionYawFactor = 1.5f;
-    [SerializeField] float controlYawFactor = 15f;
     [SerializeField] float positionPitchFactor = 0f;
+
+    [Header("Control-based rotation")]
+    [SerializeField] float controlYawFactor = 15f;
     [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float controlRollFactor = -20f;
+
     float minXPos = -22f;
     float maxXPos = 22f;
     float minYPos = -14f;
@@ -21,56 +24,22 @@ public class Player : MonoBehaviour
     float xThrow;
     float yThrow;
     float delta;
-
-    void Awake()
-    {
-
-    }
-
-    void Start()
-    {
-        
-    }
+    bool controlsEnabled = true;
 
     void Update()
     {
-        delta = Time.deltaTime;
-        xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        yThrow = CrossPlatformInputManager.GetAxis("Vertical");
-
-        Translate();
-        Rotate();
-        // float newXPos = currentLocalPos.x + xOffsetThisFrame;
-        // float newYPos = currentLocalPos.y + yOffsetThisFrame;
-
-        // if (newXPos < maxXPos && newXPos > minXPos)
-        // {
-        //     transform.localPosition = new Vector3(
-        //         newXPos, 
-        //         transform.localPosition.y, 
-        //         transform.localPosition.z
-        //     );
-        // }
-
-        // if (newYPos < maxYPos && newYPos > minYPos)
-        // {
-        //     transform.localPosition = new Vector3(
-        //         transform.localPosition.x,
-        //         newYPos,
-        //         transform.localPosition.z
-        //     );
-        // }
-
-        // print(xThrow);
-        // print(xOffsetThisFrame);
+        if (controlsEnabled) {
+            delta = Time.deltaTime;
+            xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+            yThrow = CrossPlatformInputManager.GetAxis("Vertical");
+            Translate();
+            Rotate();
+        }
     }
 
     void Translate()
     {
         Vector3 newLocalPosition = transform.localPosition;
-
-        // xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        // yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
         float xOffsetThisFrame = xThrow * xSpeed * delta;
         float yOffsetThisFrame = yThrow * ySpeed * delta;
@@ -94,5 +63,10 @@ public class Player : MonoBehaviour
         float roll = xThrow * controlRollFactor;
         
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    void OnPlayerCrash() // called by string reference
+    {
+        controlsEnabled = false;
     }
 }
