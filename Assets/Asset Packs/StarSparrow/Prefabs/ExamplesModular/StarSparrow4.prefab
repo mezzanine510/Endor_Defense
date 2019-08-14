@@ -2116,8 +2116,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4002021209372994}
-  - {fileID: 1924563202}
   - {fileID: 8758091206716162015}
+  - {fileID: 1924563202}
   - {fileID: 207437215507321639}
   - {fileID: 356753203}
   m_Father: {fileID: 0}
@@ -2184,6 +2184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLoadDelay: 1
+  crashFX: {fileID: 0}
 --- !u!1 &1821064896393842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,7 +2799,7 @@ Transform:
   - {fileID: 4488656205601008}
   - {fileID: 4222405231820596}
   m_Father: {fileID: 4211472426097644}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1088787890
 PrefabInstance:
@@ -2930,7 +2931,7 @@ PrefabInstance:
     - target: {fileID: 207437214431774357, guid: 495903753e62146c5a2186e365abcd33,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 207437214431774357, guid: 495903753e62146c5a2186e365abcd33,
         type: 3}

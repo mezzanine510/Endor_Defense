@@ -4,8 +4,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerController : MonoBehaviour
 {
     [Header("Speed")]
-    [Tooltip("xSpeed")] [SerializeField] float xSpeed = 55f;
-    [Tooltip("ySpeed")] [SerializeField] float ySpeed = 40f;
+    [SerializeField] float xSpeed = 55f;
+    [SerializeField] float ySpeed = 40f;
 
     [Header("Position-based rotation")]
     [SerializeField] float positionYawFactor = 1.5f;
