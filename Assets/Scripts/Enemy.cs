@@ -7,9 +7,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject enemyDeathFX;
     [SerializeField] GameObject parent;
 
+    ScoreBoard scoreBoard;
+
     private void Awake() {
-        Collider boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.isTrigger = false;
+        AddBoxCollider();
     }
     
     void Start()
@@ -26,5 +27,11 @@ public class Enemy : MonoBehaviour
         GameObject fx = Instantiate(enemyDeathFX, transform.position, Quaternion.identity);
         fx.transform.parent = parent.transform;
         Destroy(gameObject);
+    }
+    
+    private void AddBoxCollider()
+    {
+        Collider boxCollider = gameObject.AddComponent<BoxCollider>();
+        boxCollider.isTrigger = false;
     }
 }

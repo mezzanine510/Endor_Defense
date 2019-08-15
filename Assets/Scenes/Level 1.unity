@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circuit: {fileID: 2118884903}
-  lookAheadForTargetOffset: 1
+  lookAheadForTargetOffset: 2
   lookAheadForTargetFactor: 0
   lookAheadForSpeedOffset: 10
   lookAheadForSpeedFactor: 0.2
