@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ScoreBoard : MonoBehaviour
 {
-    [SerializeField] int scorePerHit = 14;
-    
     int score;
     Text scoreText;
 
@@ -16,10 +14,10 @@ public class ScoreBoard : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    // Update is called once per frame
-    public void ScoreHit()
+    // todo: prevent 2x damage from the 2 separate lazer particles hitting at once
+    public void ScoreHit(int scorePerHit)
     {
-        score = score + scorePerHit;
+        score += scorePerHit;
         scoreText.text = score.ToString();
     }
 }
