@@ -10,16 +10,6 @@ public class CollisionHandler : MonoBehaviour
     [Header("Particle Effects")]
     [SerializeField] GameObject crashFX;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other)
     {
         StartCrashSequence();

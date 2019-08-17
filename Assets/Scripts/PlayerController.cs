@@ -16,13 +16,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float controlRollFactor = -20f;
 
+    [Header("Weapon damage")]
+    [SerializeField] int weaponDamage = 10;
+
+    [Header("Lazer Projectiles")]
+    [SerializeField] GameObject[] projectiles;
+
     float minXPos = -22f;
     float maxXPos = 22f;
     float minYPos = -14f;
     float maxYPos = 14f;
-
     float xThrow;
     float yThrow;
+
     float delta;
     bool controlsEnabled = true;
 
@@ -34,10 +40,11 @@ public class PlayerController : MonoBehaviour
             yThrow = CrossPlatformInputManager.GetAxis("Vertical");
             Translate();
             Rotate();
+            ProcessFiring();
         }
     }
 
-    void Translate()
+    private void Translate()
     {
         Vector3 newLocalPosition = transform.localPosition;
 
@@ -50,7 +57,7 @@ public class PlayerController : MonoBehaviour
         transform.localPosition = newLocalPosition;
     }
 
-    void Rotate()
+    private void Rotate()
     {
         float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
         float pitchDueToControlThrow = yThrow * controlPitchFactor;
@@ -65,8 +72,42 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
-    void OnPlayerCrash() // called by string reference
+    private void ProcessFiring()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire"))
+        {
+            FireGuns();
+        }
+        else
+        {
+            StopFiringGuns();
+        }
+    }
+
+    private void FireGuns()
+    {
+        foreach (GameObject projectile in projectiles)
+        {
+            projectile.SetActive(true);
+        }
+    }
+
+    private void StopFiringGuns()
+    {
+        foreach (GameObject projectile in projectiles)
+        {
+            projectile.SetActive(false);
+        }
+    }
+
+    private void OnPlayerCrash() // called by string reference
     {
         controlsEnabled = false;
+    }
+
+    public int CalculateWeaponDamage()
+    {
+        int damageDealt = weaponDamage;
+        return damageDealt;
     }
 }

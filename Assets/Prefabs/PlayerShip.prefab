@@ -703,6 +703,10 @@ MonoBehaviour:
   controlYawFactor: 15
   controlPitchFactor: -20
   controlRollFactor: -20
+  weaponDamage: 10
+  projectiles:
+  - {fileID: 4964856001088051021}
+  - {fileID: 5045792134660474216}
 --- !u!114 &4964855999939339079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7663,6 +7667,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullets - Right
       objectReference: {fileID: 0}
+    - target: {fileID: 207437214431774358, guid: 495903753e62146c5a2186e365abcd33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 207437214431774357, guid: 495903753e62146c5a2186e365abcd33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7720,16 +7729,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 207437214431774355, guid: 495903753e62146c5a2186e365abcd33,
         type: 3}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 207437214431774355, guid: 495903753e62146c5a2186e365abcd33,
-        type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 207437214431774355, guid: 495903753e62146c5a2186e365abcd33,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495903753e62146c5a2186e365abcd33, type: 3}
+--- !u!1 &5045792134660474216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 207437214431774358, guid: 495903753e62146c5a2186e365abcd33,
+    type: 3}
+  m_PrefabInstance: {fileID: 4964856000847987710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5045792134660474219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 207437214431774357, guid: 495903753e62146c5a2186e365abcd33,
@@ -7747,6 +7762,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bullets - Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 207437214431774358, guid: 495903753e62146c5a2186e365abcd33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 207437214431774357, guid: 495903753e62146c5a2186e365abcd33,
         type: 3}
@@ -7805,16 +7825,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 207437214431774355, guid: 495903753e62146c5a2186e365abcd33,
         type: 3}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 207437214431774355, guid: 495903753e62146c5a2186e365abcd33,
-        type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 207437214431774355, guid: 495903753e62146c5a2186e365abcd33,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495903753e62146c5a2186e365abcd33, type: 3}
+--- !u!1 &4964856001088051021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 207437214431774358, guid: 495903753e62146c5a2186e365abcd33,
+    type: 3}
+  m_PrefabInstance: {fileID: 5045792133885645275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4964856001088051022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 207437214431774357, guid: 495903753e62146c5a2186e365abcd33,
