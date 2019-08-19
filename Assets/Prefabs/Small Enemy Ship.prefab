@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5057025877176803833}
   - component: {fileID: 5046986105672197565}
   - component: {fileID: 1987892225}
+  - component: {fileID: 1154963169}
   m_Layer: 0
   m_Name: Small Enemy Ship
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5070534467594348687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 24.9, z: 210.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4682834, y: 3.368551, z: 1.571593}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,3 +94,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDeathFX: {fileID: 7702872065416801723, guid: ab6606a0d3768264cb5bebd8c18e956f,
     type: 3}
+  parent: {fileID: 0}
+  scorePerHit: 14
+  health: 60
+--- !u!95 &1154963169
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070534467594348687}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

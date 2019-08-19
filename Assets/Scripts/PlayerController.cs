@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using static UnityEngine.ParticleSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -84,13 +85,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FireGuns(bool isActive)
+    private void FireGuns(bool isActive) // careful: may have effect on explosion
     {
         
         foreach (GameObject projectile in projectiles)
         {
-            ParticleSystem emission = projectile.GetComponent<ParticleSystem>();
-            emission.enableEmission = isActive;
+            ParticleSystem.EmissionModule emission = projectile.GetComponent<ParticleSystem>().emission;
+            emission.enabled = isActive;
         }
     }
 
