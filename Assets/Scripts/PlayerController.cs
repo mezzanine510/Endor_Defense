@@ -76,29 +76,31 @@ public class PlayerController : MonoBehaviour
     {
         if (CrossPlatformInputManager.GetButton("Fire"))
         {
-            FireGuns();
+            FireGuns(true);
         }
         else
         {
-            StopFiringGuns();
+            FireGuns(false);
         }
     }
 
-    private void FireGuns()
+    private void FireGuns(bool isActive)
     {
+        
         foreach (GameObject projectile in projectiles)
         {
-            projectile.SetActive(true);
+            ParticleSystem emission = projectile.GetComponent<ParticleSystem>();
+            emission.enableEmission = isActive;
         }
     }
 
-    private void StopFiringGuns()
-    {
-        foreach (GameObject projectile in projectiles)
-        {
-            projectile.SetActive(false);
-        }
-    }
+    // private void StopFiringGuns()
+    // {
+    //     foreach (GameObject projectile in projectiles)
+    //     {
+    //         projectile.SetActive(false);
+    //     }
+    // }
 
     private void OnPlayerCrash() // called by string reference
     {
